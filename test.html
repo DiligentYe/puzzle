@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>puzzle</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding: 30px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div><div></div></div>
+    <div id="puzzle"></div>
+    <br />
+    <br />
+    <button id="reset">重新开始</button>
+    <button id="stop">停止</button>
+
+    <div id="msg"></div>
+
+    <script src="./puzzle.js"></script>
+    <script>
+    var msg = document.getElementById('msg');
+
+    var root = document.getElementById('puzzle');
+    puzzle.init('./1.jpeg', root, {
+        borderWidth: 2,
+        failure: null,
+        // 成功时调用的函数
+        success: function () {
+            // 异步执行
+            setTimeout(function(){
+                msg.innerText = 'congratulation!';
+            }, 0);
+        },
+
+        // 失败时调用的函数
+        failure: function() {
+            setTimeout(function () {
+                msg.innerText = 'try again!'
+            }, 0);
+        }
+    });
+
+    document.getElementById('reset').onclick = function() {
+        puzzle.restart('./2.jpg');
+    }
+
+     document.getElementById('stop').onclick = function() {
+        puzzle.stop();
+    }
+    </script>
+</body>
+
+</html>

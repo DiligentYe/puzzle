@@ -28,9 +28,9 @@ var puzzle = {
 		// 碎片个数（最少的打乱次数）
 		count: 9,
 		// 准备时间
-		readyDelay: 10000,
+		readyDelay: 3000,
 		// 拼图时间
-		playDelay: 30000,
+		playDelay: 10000,
 		// 边框颜色
 		borderColor: '#999',
 		// 边框宽度

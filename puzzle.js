@@ -478,6 +478,9 @@ var puzzle = {
 			this.defaultStyle.borderColor = tempStyle.borderColor;
 			this.defaultStyle.boxShadow = tempStyle.boxShadow;
 
+			// 兼容firefox borderColor为空的问题
+			this.defaultStyle.borderLeftColor = tempStyle.borderLeftColor;
+
 			var options = this.options.highlight;
 
 			this._setStyles(ele, {
@@ -492,7 +495,7 @@ var puzzle = {
 				'position': this.defaultStyle.position,
 				'top': this.defaultStyle.top,
 				'left': this.defaultStyle.left,
-				'border-color': this.defaultStyle.borderColor,
+				'border-color': this.defaultStyle.borderColor || this.defaultStyle.borderLeftColor,
 				'box-shadow': this.defaultStyle.boxShadow
 			});
 			this.defaultStyle = {};
